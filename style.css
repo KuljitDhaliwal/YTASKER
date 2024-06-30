@@ -1,0 +1,1544 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --rajdhani-Font:  "Rajdhani", sans-serif;
+    --ubontu-Font: "Ubuntu", sans-serif;
+    --normal-Font-Size: 16px;
+    --purple-Theme-Color: #8d99ff;
+    --green-Theme-Color: #98d1c2;
+    --font-color: #282828;
+    --font-light-color: #878383;
+    --padding-top: 4rem;
+    --padding-top-bottom: 4rem 0;
+    --light-Background: #f7f8f9;
+}
+
+.loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.loaded .loader{
+    display: none;
+}
+
+.loaded #main{
+    display: block;
+}
+
+
+
+#main{
+    position: relative;
+    width: 100vw;
+    overflow-x: hidden;
+    display: none;
+}
+
+#close{
+    z-index: 99999999999999999;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+
+.cus-container{
+    padding: 0 5rem;
+}
+
+#sidebar{
+    position: fixed;
+    width: 400px;
+    height: 100vh;
+    top: 0;
+    right: -400px;
+    transition: 0.2s ease-in-out right;
+    z-index: 10;
+    background-color: var(--light-Background);
+    padding: 5rem 1.5rem;
+    box-shadow: 0 0 10px;
+}
+
+#sidebar.active{
+    right: 0;
+}
+
+#in-sidebar{
+    background-color: red;
+}
+
+.in-sidebar img{
+    height: 90px;
+}
+
+.in-sidebar  p{
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    color: var(--font-light-color);
+    margin-top: 1rem;
+}
+
+
+
+.line{
+    width: .5px;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(201, 196, 196, 0.382);
+    z-index: -1;
+}
+
+.line-one{
+    left: 25%;
+}
+.line-two{
+    left: 50%;
+}
+.line-three{
+    left: 75%;
+}
+
+
+/* navbar */
+
+.navbar{
+    width: 100%;
+    position: fixed;
+    border-bottom: 1px solid var(--purple-Theme-Color);
+    padding: 0;
+    z-index: 999999999999999;
+    background-color: #ffffff;
+    top: 0;
+}
+
+
+
+
+.navbar-brand img{
+    height: 60px;
+}
+
+.custom-info{
+    background-color: var(--purple-Theme-Color);
+    position: absolute;
+    width: 80px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 11;
+}
+.bars.active{
+    width: 30px;
+    background-color: transparent;
+}
+
+.bars.active::after{
+    transform: rotate(45deg);
+}
+.bars.active::before{
+    transform: rotate(-45deg);
+}
+
+.bars.active:hover{
+    background-color: transparent;
+    width: 30px;
+}
+
+.bars.active:hover .bars::after{
+    width: 30px;
+}
+.bars.active:hover .bars::before{
+    width: 30px;
+}
+
+#close:hover .bars{
+    width: 20px;
+}
+
+
+.out-bars{
+    width: 80px;
+    height: 100%;
+    position: relative;
+}
+
+.bars{
+    position: absolute;
+    width: 40px;
+    background-color: white;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s linear all;
+    pointer-events: none;
+}
+
+.bars::after{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    transform: translateY(-8px);
+    transition: 0.2s linear all;
+}
+.bars::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    transform: translateY(8px);
+    transition: 0.2s linear all;
+}
+
+/* .nav-item{
+    padding: 15px;
+} */
+
+.nav-item:hover{
+    background-color: aliceblue;
+}
+
+.nav-link{
+    text-transform: uppercase;
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--normal-Font-Size);
+    color: var(--font-color);
+}
+
+.nav-link:hover{
+    color: var(--font-color);
+}
+
+.nav-link.active{
+    color: var(--font-color) !important;
+    border-bottom: 5px solid var(--purple-Theme-Color);
+}
+
+
+/* Hero */
+
+#hero{
+    /* background-color: bisque; */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: var(--padding-top);
+    height: auto;
+}
+
+
+.hero-img{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.hero-img img{
+    display: block;
+    max-width: 100%;
+}
+
+
+
+.hero-text{
+    /* background-color: aqua; */
+    position: relative;
+}
+
+.hero-brand{
+    font-size: 8rem;
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-weight: 800;
+    color: #ebeced;
+    position: absolute;
+    top: -6rem;
+    z-index: -1;
+}
+
+.hero-text p{
+    color: var(--font-light-color);
+    font-family: var(--ubontu-Font);
+    font-weight: 400;
+    font-style: normal;
+      
+}
+
+.hero-text h1{
+    font-family: var(--rajdhani-Font);
+    /* font-size: 1rem; */
+}
+
+
+button{
+    position: relative;
+}
+
+button:hover .arrow{
+    left: 10px;
+    opacity: 1;
+}
+
+button:last-child{
+    margin-left: 1rem;
+}
+
+
+
+.arrow{
+    position: absolute;
+    background-color: white;
+    width: 20px;
+    height: 3px;
+    top: 50%;
+    left: 0;
+    opacity: 0;
+    transition: .2s linear all;
+}
+
+
+.common-btn{
+    border: 0;
+    padding: 15px 50px;
+    color: white;
+    border-radius: 2px;
+}
+
+
+.read-more{
+    background-color: var(--purple-Theme-Color);
+}
+
+.contact{
+    background-color: var(--green-Theme-Color);
+}
+
+/* About */
+
+#about{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: var(--padding-top);
+}
+
+#about p{
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--font-light-color);
+}
+
+.about-head-p{
+    text-transform: uppercase;
+}
+
+#about h1,h4{
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.cus-card{
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* .cus-card p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+} */
+
+#about img{
+    height: 80px;
+    margin: auto;
+}
+
+
+/* About-two */
+
+#about-two{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: var(--padding-top);
+}
+
+.serial-number{
+    font-size: 8rem;
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-weight: 800;
+    color: #ebeced;
+}
+
+.about-two-text p small{
+    font-family: var(--ubontu-Font);
+    font-weight: 300;
+    color: var(--font-light-color);
+}
+    .about-two-text p{
+        font-family: var(--ubontu-Font);
+        font-weight: 300;
+    }
+
+.about-two-img{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.about-two-img img{
+    display: block;
+    max-width: 100%;
+    height: 600px;
+}
+
+.about-two-img h1{
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 8rem;
+    position: absolute;
+    z-index: 1;
+    color: var(--font-light-color);
+}
+.main-two-img{
+    height: 600px;
+    z-index: 2;
+}
+
+.about-two-btn{
+    background-color: var(--green-Theme-Color);
+}
+
+/* services-special */
+
+#services-special{
+    padding-top: var(--padding-top);
+}
+
+.services-special-card{
+    display: flex;
+}
+
+.services-special-card img{
+    height: 40px;
+}
+.services-special-card-text{
+    margin-left: 20px;
+}
+.services-special-card-text h2{
+    text-transform: uppercase;
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+}
+.services-special-card-text p{
+    font-family: var(--ubontu-Font);
+    font-weight: 300;
+    font-style: normal;
+    color: #878383;
+}
+
+
+/* Services */
+
+#services{
+    padding-top: var(--padding-top);
+    display: flex;
+}
+
+#services h1{
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+.about-head-p{
+    text-align: center;
+}
+
+.services-card{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-Background);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.services-card img{
+    height: 60px;
+    margin: auto;
+}
+
+.services-card h5{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+}
+.services-card p{
+    font-family: var(--ubontu-Font);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--font-light-color);
+}
+
+/* motive */
+
+#motive{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: var(--padding-top);
+}
+
+.motive-img{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: #878383; */
+    width: 100%;
+    height: 100%;
+}
+
+.motive-img img{
+    display: block;
+    max-width: 100%;
+    height: 600px;
+}
+
+.watch-back{
+    left: 43%;
+    transform: translateX(-50%);
+
+}
+
+.watch{
+    height: 400px;
+    position: absolute;
+    z-index: 2;
+    left: 5rem;
+    top: 8rem;
+}
+
+.motive-text p small{
+    font-family: var(--ubontu-Font);
+    font-weight: 300;
+    color: var(--font-light-color);
+}
+
+.motive-text p{
+    font-family: var(--ubontu-Font);
+    font-weight: 300;
+}
+.ceo{
+    display: flex;
+    line-height: 20px;
+    align-items: center;
+}
+
+.ceo-text{
+    margin-left: 20px;
+}
+
+.ceo p{
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    font-weight: 400;
+    color: var(--font-light-color);
+    margin: 0;
+}
+
+.ceo h3{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+}
+
+.ceo img{
+    height: 80px;
+    border-radius: 10px;
+}
+
+#review{
+    padding: var(--padding-top-bottom)
+    /* background-color: #98d1c2; */
+}
+
+
+.review-card{
+    display: flex;
+}
+
+.review-card-img{
+    background-color: var(--light-Background);
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-card-img img{
+    height: 60px;
+}
+
+.review-card h2{
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-family: 400;
+}
+.review-card p{
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    font-family: 400;
+    color: var(--font-light-color);
+    text-transform: uppercase;
+}
+
+.review-card-text{
+    margin-left: 20px;
+}
+
+/* contact */
+
+#contact{
+    padding: var(--padding-top-bottom);
+    background-color: var(--font-color);
+    color: white;
+}
+.contact-info h2 ,.office-details h2{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.contact-info p, .office-details p{
+    font-family: var(--ubontu-Font);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--font-light-color);
+}
+
+.contact-logos a{
+    color: black;
+    text-decoration: none;
+}
+
+.phone, .mail{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.phone p, .mail p{
+    margin: 0;
+}
+
+.timing{
+    display: flex;
+    gap: 10px;
+}
+
+.timing p{
+    margin: 0;
+}
+
+.location iframe{
+    width: 100%;
+    height: 200px;
+}
+
+
+
+/* Footer */
+
+#footer{
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+}
+
+.social-media{
+    display: flex;
+    gap: 20px;
+}
+
+.social-media i{
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.rights{
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.rights p, small{
+    padding:0;
+    margin: 0;
+}
+
+#footer button{
+    background-color: var(--purple-Theme-Color);
+}
+
+.footer-btn{
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 2px;
+    color: white;
+}
+
+
+
+/* ABout Us page */
+
+#banner{
+    min-height: 75vh;
+    background: url(assets/aboutUsBanner.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-attachment: fixed;
+}
+
+#banner::after{
+    content: '';
+    background-color:#1a1a1a6d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#banner h1{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 8rem;
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+}
+#banner p{
+    font-family: var(--ubontu-Font);
+    font-weight: 400;
+    font-style: normal;
+    /* font-size: 8rem; */
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+}
+
+/* about-cards */
+
+#about-cards{
+    /* padding: var(--padding-top); */
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.about-back-img{
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: red;
+    left: 0;
+    top: 0;
+    transition: 0.5s ease-in-out width;
+    overflow: hidden;
+    z-index: -1;
+}
+.about-back-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#about-cards .row{
+    border: 1px solid var(--font-color);
+}
+
+.col-color{
+    /* background-color: var(--light-Background); */
+    padding: 4rem 2rem;
+    border-right: 1px solid var(--font-color);
+    position: relative;
+}
+
+.col-color:hover .about-back-img{
+    width: 100%;
+}
+
+.col-color:hover .about-card h2 {
+    color: white;
+}
+.col-color:hover .about-card p small{
+    color: white;
+}
+
+.about-card{
+    position: relative;
+    margin-top: 4rem;
+}
+
+.about-card h1{
+    font-size: 8rem;
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-weight: 800;
+    color: #ebeced;
+    position: absolute;
+    top: -5.5rem;
+    z-index: -1;
+}
+.about-card p small{
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    font-weight: 400;
+    z-index: 2;
+    transition: 0.2s ease-in-out color;
+}
+.about-card h2{
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+    font-weight: 400;
+    z-index: 2;
+    text-transform: uppercase;
+    transition: 0.2s ease-in-out color;
+}
+
+
+/* About Company */
+
+#about-company{
+    height: auto;
+    padding: var(--padding-top-bottom);
+}
+
+/* #about-company.pad{
+    padding-top: var(--padding-top);
+} */
+
+#about-company h1{
+    text-transform: uppercase;
+}
+#about-company p{
+    color: var(--font-light-color);
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* #testimonial{
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #8d99ff;
+    position: relative;
+}
+
+#testimonial .test-shape{
+    position: absolute;
+    left: 0;
+    transform: rotate(35deg);
+    top: 0;
+}
+
+#testimonial p{
+    font-family: var(--ubontu-Font);
+    color: var(--font-light-color);
+    font-style: normal;
+}
+
+#testimonial h1{
+    font-family: var(--rajdhani-Font);
+    font-style: normal;
+}
+
+.carousel-out{
+    width: 100%;
+}
+
+.out-test-card{
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.test-card{
+    display: flex;
+    gap: 20px;
+    height: 300px;
+    padding: 5rem;
+    align-items: center;
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.in-test-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+}
+.in-test-card p{
+    text-align: left;
+}
+.test-img{
+    height: 150px;
+    width: 110px;
+    background-color: var(--purple-Theme-Color);
+    position: relative;
+    border-radius: 10px;
+}
+.test-img img{
+    height: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--purple-Theme-Color);
+    transform: translate(-10px, -10px);
+/* }  */
+
+/* .carousel-item img{
+    height: 600px;
+} */
+
+/* Experience */
+
+#experience{
+    padding: 4rem 0;
+}
+
+.exp-image{
+    position: relative;
+}
+
+.exp-image-text{
+    position: absolute;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.exp-image-text p{
+    color: black;
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.exp-text h1, h3{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+}
+.exp-text p{
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    color: var(--font-light-color);
+}
+
+.below-mission{
+    padding: 10px;
+    border-top: 1px solid var(--font-light-color);
+}
+
+/* Team Page */
+
+/* team-Banner */
+
+#team-banner{
+    min-height: 75vh;
+    background: url(assets/team.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-attachment: fixed;
+}
+
+#team-banner::after{
+    content: '';
+    background-color:#1a1a1a6d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#team-banner h1{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 8rem;
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+}
+#team-banner p{
+    font-family: var(--ubontu-Font);
+    font-weight: 400;
+    font-style: normal;
+    /* font-size: 8rem; */
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+}
+
+/* Team */
+
+#team{
+    padding: var(--padding-top-bottom);
+}
+
+
+
+
+.team-card{
+    width: 18rem;
+    height: 28rem;
+    margin: 25px;
+    /* padding: 10px; */
+}
+
+.team-card img{
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+}
+
+.team-card p small{
+    font-family: var(--ubontu-Font);
+    color: var(--font-light-color);
+}
+.team-card h3{
+    font-family: var(--rajdhani-Font);
+    text-transform: uppercase;
+}
+
+.team-social a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+
+/* Contact us Page */
+
+#contact-details{
+    padding: var(--padding-top-bottom);
+}
+
+#contact-banner{
+        min-height: 75vh;
+        background: url(assets/contact.jpg);
+        background-position: 100% 100%;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        background-attachment: fixed;
+}
+#contact-banner::after{
+    content: '';
+    background-color:#1a1a1a6d;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#contact-banner h1{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 8rem;
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+}
+#contact-banner p{
+    font-family: var(--ubontu-Font);
+    font-weight: 400;
+    font-style: normal;
+    /* font-size: 8rem; */
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+}
+
+.contact-list ul{
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+}
+.contact-list ul li a{
+    color: white;
+    text-decoration: none;
+    margin-right: 2rem;
+    font-size: 1rem;
+}
+
+.contact-list h1{
+    color: var(--font-light-color);
+    font-size: 5rem;
+}
+
+.contact-list p{
+    color: var(--font-light-color);
+    font-family: var(--ubontu-Font);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.contact-list span{
+    cursor: pointer;
+}
+.contact-list a{
+    color: var(--whiteColor);
+    text-decoration: underline;
+}
+
+
+/* Not Found */
+
+.not-found{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.in-not-found{
+    text-align: center;
+    width: 40%;
+}
+
+.in-not-found h1{
+    font-size: 14vw;
+    font-weight: 900;
+    background: url(assets/geometric-black-background-gear-gradient-260nw-2113013648.webp);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Our services */
+
+#services-banner{
+    min-height: 75vh;
+    background: url(assets/services.jpg);
+    background-position: 100% 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-attachment: fixed;
+}
+#services-banner::after{
+content: '';
+background-color:#1a1a1a6d;
+position: absolute;
+width: 100%;
+height: 100%;
+z-index: 1;
+}
+
+#services-banner h1{
+font-family: var(--rajdhani-Font);
+font-weight: 400;
+font-style: normal;
+font-size: 8rem;
+text-transform: uppercase;
+color: white;
+z-index: 2;
+}
+#services-banner p{
+font-family: var(--ubontu-Font);
+font-weight: 400;
+font-style: normal;
+/* font-size: 8rem; */
+text-transform: uppercase;
+color: white;
+z-index: 2;
+}
+/* .services{
+    padding-top: var(--padding-top);
+} */
+
+
+.services ul{
+    list-style: none;
+}
+.services ul li{
+    border: 1px solid var(--font-light-color);
+    padding: 2rem 4rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.services ul li h4{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+
+.plus{
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+}
+
+.plus span{
+    position: absolute;
+    font-size: 2rem;
+}
+
+.list-data{
+    display: none;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.5s ease-in-out all;
+}
+
+.list-data p{
+    font-family: var(--rajdhani-Font);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.services ul li.show .list-data{
+    display: block;
+}
+
+.minus-sign{
+    display: none;
+}
+
+.services ul li.show .minus-sign{
+    display: block;
+}
+.services ul li.show .plus-sign{
+    display: none;
+}
+
+
+
+/* Media Query */
+
+/* Mobile Media */
+
+@media only screen and (max-width: 1400px){
+    .cus-card{
+        width: 15rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-two-back-ring {
+        height: 520px;
+    }
+    .serial-number {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .serial-number {
+        font-size: 4rem;
+    }
+
+}
+/* Styles for tablets (iPads) */
+@media (max-width: 1024px) {
+    #hero, #about-two, #motive {
+        min-height: 50vh; /* Adjust height for tablets */
+    }
+    #hero{
+        margin-top: 4rem;
+    }
+    #banner, #team-banner, #contact-banner, #services-banner{
+        min-height: 50vh;
+        margin-top: 4rem;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    #services-banner h1{
+        font-size: 6rem;
+    }
+    ul{
+        padding-left: 0;
+    }
+
+    .hero-img{
+        margin-top: 0;
+    }
+    .hero-text{
+        text-align: center;
+    }
+    .hero-brand{
+        font-size: 5rem;
+        top: -2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .hero-img{
+        width: 300px;
+        height: 265px;
+        display: grid;
+        place-items: center;
+        position: relative;
+        margin-top: 0;
+    }
+
+    .common-btn {
+        padding: 10px 30px;
+    }
+    .about-two-back-ring {
+        height: 620px;
+    }
+    .about-back-ring {
+        left: 60%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    
+}
+@media only screen and (max-width: 768px){
+    .custom-info{
+        display: none;
+    }
+}
+@media only screen and (max-width: 568px){
+
+
+    /* Hero */
+
+    #hero{
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-img{
+        width: 300px;
+        height: 275px;
+        display: grid;
+        place-items: center;
+        position: relative;
+    }
+
+    .hero-img .back-ring{
+        position: absolute;
+        height: 250px;
+        z-index: -1;
+        left: -3rem;
+        /* width: 100%; */
+    }
+
+    .hero-img .apple-pencil{
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        z-index: 1;
+        right: -.7rem;
+        bottom: 1rem;
+    }
+
+    .hero-text{
+        text-align: center;
+    }
+
+    .hero-brand{
+        font-size: 4rem;
+        top: -2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .common-btn {
+        padding: 10px 30px;
+    }
+
+    .custom-info{
+        display: none;
+    }
+
+    /* About */
+
+    #about br{
+        display: inline;
+    }
+    #about br{
+        display: none;
+    }
+
+
+    /* About-Two */
+    .about-two-img img, .motive-img img {
+        height: 300px;
+    }
+
+    #banner h1, #team-banner h1, #contact-banner h1, #services-banner h1{
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    #about-two{
+        min-height: 100vh;
+        height: auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        overflow-x: hidden;
+    }
+
+    .about-two-text{
+        text-align: center;
+    }
+
+    #about-two .row{
+        flex-direction: column-reverse;
+    }
+
+    .serial-number{
+        font-size: 3rem;
+    }
+
+
+
+    /* Motive */
+
+    .watch{
+        height: 200px;
+        top: 4.5rem;
+        right: 4.5rem
+    }
+
+    .motive-text{
+        text-align: center;
+    }
+
+    .ceo{
+        justify-content: center;
+    }
+
+    /* Review */
+
+
+    #review .row{
+        gap: 20px;
+    }
+
+    .review-card{
+        margin: auto;
+        width: 270px;
+    }
+
+    /* Contact */
+
+    #contact .row{
+        gap: 20px;
+    }
+
+    .contact-info, .office-details{
+        text-align: center;
+    }
+
+    .phone, .mail, .timing, .location{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .exp-image img{
+        height: 350px;
+    }
+    .exp-image-text{
+        height: 250px;
+        width: 250px;
+    }
+
+    .contact-list h1 {
+        font-family: var(--rajdhani-Font);
+        font-weight: 400;
+        font-style: normal;
+        color: var(--font-light-color);
+        font-size: 2rem;
+        margin-top: 0;
+    }
+    .services ul li h4{
+        font-size: 1rem;
+    }
+    .services ul li{
+        padding: 2rem 1rem;
+    }
+
+}
