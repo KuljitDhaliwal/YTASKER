@@ -15,13 +15,13 @@ if (pathName === '/YTASKER/') {
     navLinks.forEach(element => {
         console.log('element', element.href)
         if (element.href === window.location.origin + '/YTASKER/') {
-            element.classList.add('active');
+            element.classList.add('cus-active');
         }
     });
 } else {
     navLinks.forEach(element => {
         if (element.href.includes(pathName)) {
-            element.classList.add('active');
+            element.classList.add('cus-active');
         }
     });
 }

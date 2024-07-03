@@ -227,16 +227,20 @@ a{
     font-weight: 400;
     font-style: normal;
     font-size: var(--normal-Font-Size);
-    color: var(--font-color);
+    padding: 10px 3rem !important;
+    /* color: var(--font-color); */
 }
 
 .nav-link:hover{
     color: var(--font-color);
 }
 
-.nav-link.active{
-    color: var(--font-color) !important;
-    border-bottom: 5px solid var(--purple-Theme-Color);
+.nav-link.cus-active{
+    /* color: var(--font-color) !important; */
+    background-color: #8d99ff;
+    color: white;
+    border-radius: 2px;
+    /* border-bottom: 5px solid var(--purple-Theme-Color); */
 }
 
 
