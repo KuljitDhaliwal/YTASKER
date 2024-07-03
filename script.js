@@ -5,13 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-// const navLinks = document.querySelectorAll('.nav-link');
-// const pathName = window.location.pathname;
-// navLinks.forEach(element => {
-//     if (element.href.includes(pathName)) {
-//         element.classList.add('active')
-//     }
-// })
 
 const navLinks = document.querySelectorAll('.nav-link');
 const pathName = window.location.pathname;
