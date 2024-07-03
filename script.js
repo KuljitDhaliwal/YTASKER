@@ -1,17 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
+        document.getElementById('loader').style.display = 'none';
     })
 })
 
 
+// const navLinks = document.querySelectorAll('.nav-link');
+// const pathName = window.location.pathname;
+// navLinks.forEach(element => {
+//     if (element.href.includes(pathName)) {
+//         element.classList.add('active')
+//     }
+// })
+
 const navLinks = document.querySelectorAll('.nav-link');
 const pathName = window.location.pathname;
-navLinks.forEach(element => {
-    if (element.href.includes(pathName)) {
-        element.classList.add('active')
-    }
-})
+
+if (pathName === '/') {
+    navLinks.forEach(element => {
+        if (element.href === window.location.origin + '/') {
+            element.classList.add('active');
+        }
+    });
+} else {
+    navLinks.forEach(element => {
+        if (element.href.includes(pathName)) {
+            element.classList.add('active');
+        }
+    });
+}
+
     
 
 const sidebar = document.getElementById('sidebar');
