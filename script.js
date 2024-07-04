@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
-
 const navLinks = document.querySelectorAll('.nav-link');
 const pathName = window.location.pathname;
 
@@ -13,7 +12,6 @@ console.log('chaeck' , window.location.origin, 'pathName', pathName)
 
 if (pathName === '/YTASKER/') {
     navLinks.forEach(element => {
-        console.log('element', element.href)
         if (element.href === window.location.origin + '/YTASKER/') {
             element.classList.add('cus-active');
         }
