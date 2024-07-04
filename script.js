@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('load', () => {
-        document.getElementById('loader').style.display = 'none';
+        setTimeout(() => {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('logo').classList.add('animate');
+        }, 0)
     })
 })
 
