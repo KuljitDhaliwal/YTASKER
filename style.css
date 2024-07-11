@@ -801,7 +801,7 @@ button:last-child{
 #banner{
     min-height: 75vh;
     background: url(assets/aboutUsBanner.jpg);
-    background-position: center;
+    background-position: center center;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -1445,6 +1445,14 @@ z-index: 2;
     .custom-info{
         display: none;
     }
+
+  
+  /* For mobile */
+    .button:active .arrow, .button:focus .arrow{
+            left: 10px;
+            opacity: 1;
+    }
+  
 }
 @media only screen and (max-width: 568px){
 
@@ -1488,7 +1496,7 @@ z-index: 2;
 
     .hero-brand{
         font-size: 4rem;
-        top: -2.5rem;
+        top: -4rem;
         left: 50%;
         transform: translateX(-50%);
     }

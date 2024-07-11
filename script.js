@@ -7,6 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
+document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('touchstart', () => {
+      button.classList.add('active');
+    });
+    button.addEventListener('touchend', () => {
+      button.classList.remove('active');
+    });
+  });
+  
+
 
 const navLinks = document.querySelectorAll('.nav-link');
 const pathName = window.location.pathname;
