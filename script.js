@@ -1,11 +1,31 @@
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('load', () => {
+        // Fetch Header
+        fetch('header.html').then(response => response.text()).then(data => {
+            document.querySelector('header').innerHTML = data;  
+            sideBar();
+            navListToggle();
+        })
+        // Fetch Footer
+        fetch('footer.html').then(response => response.text()).then(data => {
+            document.querySelector('footer').innerHTML = data;
+        })
+        // Fetch Sidebar
+        fetch('sidebar.html').then(response => response.text()).then(data => {
+            document.querySelector('aside').innerHTML = data;
+            sideBar();
+        })
         setTimeout(() => {
             document.getElementById('loader').style.display = 'none';
             document.getElementById('logo').classList.add('animate');
         }, 0)
     })
 })
+
+
 
 document.querySelectorAll('.button').forEach(button => {
     button.addEventListener('touchstart', () => {
@@ -38,21 +58,43 @@ if (pathName === '/YTASKER/') {
 }
 
     
-
-const sidebar = document.getElementById('sidebar');
-const openCloseBtn = document.querySelector('#close');
-
-
+function sideBar() {
+    const sidebar = document.getElementById('sidebar');
+    const openCloseBtn = document.querySelector('#close');
     openCloseBtn.addEventListener('click', () => {
         sidebar.classList.toggle('active');
         document.querySelector('.bars').classList.toggle('active');
     })
+}
+
+function navListToggle() {
+    const hamBurger = document.querySelector(".hamburger-btn");
+    const navList = document.querySelector(".in-nav ul");
+    hamBurger.addEventListener('click', () => {
+        navList.classList.toggle('active');
+        document.querySelector('.bars').classList.toggle('active');
+    })
+}
+
+document.addEventListener('click', (e) => {
+    if (e.target.id != 'nav-list' && e.target.id != 'ham') {
+        document.querySelector('.in-nav ul').classList.remove('active');
+    }
+})
+
+document.addEventListener('click', (e) => {
+    if (e.target.id != 'sidebar' && e.target.id != 'close') {
+        document.querySelector('#sidebar').classList.remove('active');
+    }
+})
+
+
+
 
 
 document.addEventListener('click', (e) => {
     console.log(e.target.id)
         if (e.target.id !== 'sidebar' && e.target.id !== 'close') {
-            sidebar.classList.remove('active');
             document.querySelector('.bars').classList.remove('active');
         }
     })
@@ -73,7 +115,7 @@ projectsValue.forEach((valueDisplay) => {
 });
 
 document.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
+    if (window.scrollY > 40) {
         document.getElementById('sidebar').classList.remove('active');
         document.querySelector('.bars').classList.remove('active');
     }
